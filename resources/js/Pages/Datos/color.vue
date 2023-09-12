@@ -63,6 +63,7 @@
                                     <div class="box5" :style="{ backgroundColor: color.fontcolor }"></div>
                                 </div>
                           </div>
+                        <!-- Formulario tipo color -->
                         <form @submit="(update(form.id))">
                             <div class="form-group row">
                                 <label class="col-sm-8 col-form-label" for="form.maincolor"

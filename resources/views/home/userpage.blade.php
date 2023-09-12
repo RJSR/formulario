@@ -44,9 +44,9 @@
          @include('home.slider')
          <!-- end slider section -->
       </div>
-      <!-- why section -->
-      @include('home.why')
-      <!-- end why section -->
+      <!-- services section -->
+      @include('home.services')
+      <!-- end services section -->
       
       <!-- arrival section -->
       <!-- <section class="arrival_section">
