@@ -95,10 +95,10 @@
             background-color: {{$color->maincolor}};
             color: {{$color->bgcolor}};
             
-        }
+         }
          .slider_section .detail-box h1 span {
             color: {{$color->thirdcolor}};
-        }
+         }
          .slider_section .detail-box h1 {
             
             color: {{$color->thirdcolor}};

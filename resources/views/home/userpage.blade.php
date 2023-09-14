@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 <html>
-    
+    <!-- TODO@RJSR Añadir cuadro por encima del resto de elementos -->
    <head>
       <!-- Basic -->
       <meta charset="utf-8" />
