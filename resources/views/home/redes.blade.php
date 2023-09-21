@@ -59,7 +59,7 @@
          top: 40%;
          right: 0px;
          padding-bottom: 2%;
-         border-radius: 2px;
+         border-radius: 4px 0 0 4px;
          display: flex;
          align-items: center;
          flex-direction: column;
@@ -85,7 +85,11 @@
          width: var(--w);
          height: var(--h);
          
+         
       }
+      /* a{
+        pointer-events: none;
+      } */
 
       .cube {
         /* margin-top: 50%; */
@@ -96,6 +100,7 @@
         transform-style: preserve-3d;
         transform: scale(0.9) var(--start-pos);
         transition: transform var(--anim-duration);
+        
         
 
          /* 	background-color: rgba(40, 40, 40, 0.1); */
@@ -145,10 +150,14 @@
       .ig{
         background-image: url('ig.png');
         background-color: white;
+        
       }
       .x{
         background-image: url('x.png');
         background-color: black;
+        /* display: none; */
+        
+        
       }
       .fb{
         background-image: url('fb.png');
