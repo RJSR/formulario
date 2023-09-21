@@ -5,6 +5,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import axios from 'axios';
 import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
@@ -17,13 +18,13 @@ const showingNavigationDropdown = ref(false);
 </script>
 
 <template>
-    <div v-for="color, i in colors" :key="color.id">
-        <div class="min-h-screen bg-gray-100" >
-            <nav class="bg-white border-b border-gray-100"   >
+    <div  >
+        <div class="min-h-screen bg-gray-100" :style="{ backgroundColor: color.maincolor }" >
+            <nav class="bg-white border-b border-gray-100" :style="{ backgroundColor: color.maincolor }"  >
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" :style="{ backgroundColor: color.thirdcolor, color: color.fontcolor }" >
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"  :style="{ backgroundColor: color.maincolor }">
+                    <div class="flex justify-between h-16" :style="{ backgroundColor: color.maincolor }">
+                        <div class="flex" :style="{ backgroundColor: color.maincolor }">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
@@ -178,3 +179,27 @@ const showingNavigationDropdown = ref(false);
         </div>
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            colors: [],
+        };
+    },
+    created() {
+        this.fetchPosts()
+    },
+    methods: {
+        fetchPosts() {
+            axios.get('/color').then(response=> this.color = response.data).catch(error=>console.error(error));
+            
+            }
+        
+    }
+  
+};
+</script>
+
+<style>
+
+</style>

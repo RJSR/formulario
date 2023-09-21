@@ -92,8 +92,10 @@
             </div>
       <style>
          .slider_section{
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             background-color: {{$color->maincolor}};
             color: {{$color->bgcolor}};
+
             
          }
          .slider_section .detail-box h1 span {
@@ -105,6 +107,7 @@
             
          }
          .slider_section .detail-box a {
+            box-shadow: 0 0px 4px 0 {{$color->thirdcolor}};
             background-color: {{$color->thirdcolor}};
             color: {{$color->fontcolor}};
             border: 1px solid {{$color->thirdcolor}};
@@ -113,6 +116,7 @@
             color: {{$color->thirdcolor}};
          }
          .slider_section .carousel-indicators li.active {
+            
             background-color: {{$color->thirdcolor}};            
          }
     </style>

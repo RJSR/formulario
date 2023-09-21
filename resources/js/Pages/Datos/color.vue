@@ -47,11 +47,11 @@
 <template>
     <Head title="Colores"></Head>
     <AuthenticatedLayout>
-        <div class="container form-container">
-            <div class="row justify-content-center">
-                <div class="col-md-12" v-for="color, i in colors" :key="color.id">
+        <div class="container form-container" v-for="color, i in colors" :key="color.id">
+            <div class="row justify-content-center" >
+                <div class="col-md-12" >
 
-                    <div class="card" style="width: 18rem">
+                    <div class="card" style="width: 18rem" :style="{ backgroundColor: color.bgcolor }">
 
                         <div class="card-body">
                             <div class="barracolor" >
@@ -64,7 +64,7 @@
                                 </div>
                           </div>
                         <!-- Formulario tipo color -->
-                        <form @submit="(update(form.id))">
+                        <form @submit="(update(color.id))" >
                             <div class="form-group row">
                                 <label class="col-sm-8 col-form-label" for="form.maincolor"
                                     >Color Principal</label>
@@ -73,8 +73,8 @@
                                             class="form-control"
                                             type="color"
                                             id="form.maincolor"
-                                            name="maincolor"
-                                            for="color.maincolor"
+
+                                            
                                             v-model="form.maincolor"
                                         />
                                     </div>
@@ -129,6 +129,7 @@
                             </div>
                              <div class="d-grid mx-auto">
                                 <button class="btn btn-success" 
+                                    
                                     :disabled="form.processing"
                                     :style="{ backgroundColor: color.thirdcolor, color: color.fontcolor }">
                                     <i class="fa-solid fa-floppy-disk"></i> Guardar
@@ -153,6 +154,7 @@
     }
     .colores{  
         border-radius: 4px;
+        border: 2px solid;
         margin-bottom: 10px;
         overflow: hidden;
         width: 100%;

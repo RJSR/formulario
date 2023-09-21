@@ -61,16 +61,22 @@
 
     <style>
         .foot{
+            box-shadow: 0 -4px 8px 0 rgba(0,0,0,0.2);
             background-color: {{$color->maincolor}};
             color: {{$color->fontcolor}}
             
         }
         .fondo{
-            margin-left: 7%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) inset;
+            width: 75%;
+            border-radius: 5px;
+            align-self: center;
+            margin-left: 8%;
             display:inline-flex;
             justify-content: center;
             padding: 5%;
             background-color: {{$color->bgcolor}};
+            
             
         }
 
