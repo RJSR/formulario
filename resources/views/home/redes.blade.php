@@ -3,7 +3,7 @@
    
     <nav class="redes">
          <div class="cubes-grid">
-            <a href="https://www.x.com">
+            <a href="{{$red -> twitter}}">
                <div class="item">
 
                   <div class="cube">
@@ -20,7 +20,7 @@
          </div>
          <!-- <div style="margin-top: 20px;"></div> -->
          <div class="cubes-grid">
-            <a href="https://www.x.com">
+            <a href="{{$red -> ig}}">
                <div class="item">
 
                   <div class="cube">
@@ -36,7 +36,7 @@
             </a>
          </div>
          <div class="cubes-grid">
-            <a :href="{{ $red->fb }}">
+            <a href="{{$red -> fb}}">
                <div class="item">
 
                   <div class="cube">
@@ -102,14 +102,14 @@
         transform-style: preserve-3d;
         transform: scale(0.9) var(--start-pos);
         transition: transform var(--anim-duration);
-        
-        
+
 
          /* 	background-color: rgba(40, 40, 40, 0.1); */
       }
 
       .item:hover .cube {
          transform: var(--end-pos) scale(1);
+         
       }
 
       .cube-face {
@@ -156,6 +156,7 @@
       }
       .x{
         background-image: url('x.png');
+        
         background-color: black;
         /* display: none; */
         
@@ -165,5 +166,6 @@
         background-image: url('fb.png');
         background-color: white;
       }
+
     </style>
 </section>

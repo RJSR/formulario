@@ -15,7 +15,7 @@ class DatosController extends Controller
     public function index()
     {
         $datos = Datos::all();
-        return Inertia::render('Datos/red',['datos' => $datos]);
+        return Inertia::render('Datos/Index',['datos' => $datos]);
     }
 
     /**

@@ -20,7 +20,8 @@ class ProfileController extends Controller
         $datos = DB::table('datos')->get();
         $colors = DB::table('colors')->get();
         $redes = DB::table('redes')->get();
-        return view('home.userpage',['datos' => $datos], ['colors' => $colors], ['redes' => $redes]);
+        // return view('home.userpage',['datos' => $datos], ['colors' => $colors], ['redes' => $redes]);
+        return view('home.userpage', compact('datos','colors','redes'));
     }
     /**
      * Display the user's profile form.
