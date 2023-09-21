@@ -45,7 +45,7 @@
                         <span class="input-group-text"><i class="fa-solid fa-user"> Twitter</i></span>
                         <TextInput :id="'twitter'+op" class="form-control" type="url"
                         name="twitter" v-model="form.twitter" maxlength="150" placeholder="https://www.x.com"
-                        required></TextInput>
+                        ></TextInput>
                     </div>
                     <div v-if="form.errors.twitter" class="text-sm text-danger">
                         {{ form.errors.twitter }}
@@ -54,16 +54,16 @@
                         <span class="input-group-text"><i class="fa-solid fa-user">Instagram</i></span>
                         <TextInput :id="'ig'+op" class="form-control" type="url"
                         name="ig" v-model="form.ig" maxlength="150" placeholder="https://www.instagram.com"
-                        required></TextInput>
+                        ></TextInput>
                     </div>
                     <div v-if="form.errors.ig" class="text-sm text-danger">
                         {{ form.errors.ig }}
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                        <span class="input-group-text"><i class="fa-solid fa-user">Facebook</i></span>
                         <TextInput :id="'fb'+op" class="form-control" type="url"
                         name="fb" v-model="form.fb" maxlength="150" placeholder="https://www.facebook.com"
-                        required></TextInput>
+                        ></TextInput>
                     </div>
                     <div v-if="form.errors.fb" class="text-sm text-danger">
                         {{ form.errors.fb }}
