@@ -19,7 +19,8 @@ class ProfileController extends Controller
     public function index(){
         $datos = DB::table('datos')->get();
         $colors = DB::table('colors')->get();
-        return view('home.userpage',['datos' => $datos], ['colors' => $colors]);
+        $redes = DB::table('redes')->get();
+        return view('home.userpage',['datos' => $datos], ['colors' => $colors], ['redes' => $redes]);
     }
     /**
      * Display the user's profile form.

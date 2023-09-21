@@ -1,4 +1,6 @@
+
 <section>
+   
     <nav class="redes">
          <div class="cubes-grid">
             <a href="https://www.x.com">
@@ -34,7 +36,7 @@
             </a>
          </div>
          <div class="cubes-grid">
-            <a href="https://www.x.com">
+            <a :href="{{ $red->fb }}">
                <div class="item">
 
                   <div class="cube">

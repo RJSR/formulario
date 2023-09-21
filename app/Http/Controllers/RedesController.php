@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Datos;
+use App\Models\Redes;
 use App\Http\Requests\StoreDatosRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class DatosController extends Controller
+class RedesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $datos = Datos::all();
-        return Inertia::render('Datos/red',['datos' => $datos]);
+        $redes = Redes::all();
+        return Inertia::render('Datos/red',['redes' => $redes]);
     }
 
     /**
@@ -32,24 +32,20 @@ class DatosController extends Controller
     public function store(Request $request)
     {
         $request-> validate([
-            "nombre" => "required",
-            "rif" => "required",
-            "tlf1" => "required",
-            "tlf2" => "required",
-            "correo1" => "required",
-            "correo2" => "required",
-            "diredo" => "required",
-            "dirpais" => "required",
+            "twitter" => "required",
+            "ig" => "required",
+            "fb" => "required",
+
         ]);
-        $dato = new Datos($request->input());
-        $dato->save();
-        return redirect('dato');
+        $red = new Redes($request->input());
+        $red->save();
+        return redirect('red');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Datos $datos)
+    public function show(Redes $redes)
     {
         //
     }
@@ -57,7 +53,7 @@ class DatosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Datos $datos)
+    public function edit(Redes $redes)
     {
         //
     }
@@ -67,18 +63,18 @@ class DatosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dato = Datos::find($id);
-        $dato->fill($request->input())->saveOrFail();
-        return redirect('dato');
+        $red = Redes::find($id);
+        $red->fill($request->input())->saveOrFail();
+        return redirect('red');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        $dato = Datos::find($id);
-        $dato->delete();
-        return redirect()->route('dato.index');
+        $red = Redes::find($id);
+        $red->delete();
+        return redirect()->route('red.index');
     }
 }

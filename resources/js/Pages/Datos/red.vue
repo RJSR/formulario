@@ -1,13 +1,13 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import ModalDato from '@/Components/ModalDato.vue';
+import ModalRed from '@/Components/ModalRed.vue';
 import Swal from 'sweetalert2';
 import { Head } from '@inertiajs/vue3';
 import { useForm } from '@inertiajs/vue3';
 
 const form = useForm({});
 const props = defineProps({
-    datos:{type:Object}
+    redes:{type:Object}
 });
 
 const eliminar = (id,name) =>{
@@ -23,26 +23,22 @@ const eliminar = (id,name) =>{
         cancelButtonText:'<i class = "fa-solid fa-ban"></i> Cancelar'
     }).then((result) => {
         if(result.isConfirmed){
-            form.delete(route('dato.destroy',id));
+            form.delete(route('red.destroy',id));
         }
     })
 };
 
-const openModal = (dato) => {
-    document.getElementById('id2').value = dato.id;
-    document.getElementById('nombre2').value = dato.nombre;
-    document.getElementById('rif2').value = dato.rif;
-    document.getElementById('tlf12').value = dato.tlf1;
-    document.getElementById('tlf22').value = dato.tlf2;
-    document.getElementById('correo12').value = dato.correo1;
-    document.getElementById('correo22').value = dato.correo2;
-    document.getElementById('diredo2').value = dato.diredo;
-    document.getElementById('dirpais2').value = dato.dirpais;
+const openModal = (red) => {
+    document.getElementById('id2').value = red.id;
+    document.getElementById('twitter2').value = red.twitter;
+    document.getElementById('ig2').value = red.ig;
+    document.getElementById('fb2').value = red.fb;
+
 }
 
 </script>
 <template>
-    <Head title="Datos"></Head>
+    <Head title="Redes"></Head>
     <AuthenticatedLayout>
         <template #header>
             <div class="container-fluid mt-3 bg-white">
@@ -59,24 +55,20 @@ const openModal = (dato) => {
                             <table class="table table-stripeted table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>NOMBRE</th><th>RIF</th><th>TLF 1</th><th>TLF 2</th>
-                                        <th>CORREO 1</th><th>CORREO 2</th><th>ESTADO</th><th>PAIS</th><th></th><th></th>
+                                        <th>#</th><th>TWITTER</th><th>INSTAGRAM</th><th>FACEBOOK</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="dato, i in datos" :key="dato.id">
+                                    <tr v-for="red, i in redes" :key="red.id">
                                         <td>{{ i+1 }}</td>
-                                        <td>{{ dato.nombre }}</td>
-                                        <td>{{ dato.rif }}</td>
-                                        <td>{{ dato.tlf1 }}</td>
-                                        <td>{{ dato.tlf2 }}</td>
-                                        <td>{{ dato.correo1 }}</td>
-                                        <td>{{ dato.correo2 }}</td>
-                                        <td>{{ dato.diredo }}</td>
-                                        <td>{{ dato.dirpais }}</td>
+                                        <td>{{ red.twitter }}</td>
+                                        <td>{{ red.ig }}</td>
+                                        <td>{{ red.fb }}</td>
+
                                         <td>
                                             <button class="btn btn-warning" data-bs-toggle="modal"
-                                            data-bs-target="#modalEdit" @click="openModal(dato)">
+                                            data-bs-target="#modalEdit" @click="openModal(red)">
                                             <i class="fa-solid fa-edit"></i>
                                             </button>
                                         </td>
@@ -87,8 +79,8 @@ const openModal = (dato) => {
                     </div>
                 </div>
             </div>
-            <!-- <ModalDato :modal="'modalCreate'" :title="'Añadir Canción'" :op="'1'"></ModalDato> -->
-            <ModalDato :modal="'modalEdit'" :title="'Editar Canción'" :op="'2'"></ModalDato>
+            <!-- <ModalRed :modal="'modalCreate'" :title="'Añadir Canción'" :op="'1'"></ModalRed> -->
+            <ModalRed :modal="'modalEdit'" :title="'Editar Canción'" :op="'2'"></ModalRed>
         </template>
     </AuthenticatedLayout>
 

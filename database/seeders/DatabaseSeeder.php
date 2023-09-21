@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 use App\Models\Datos;
 use App\Models\Colors;
+use App\Models\Redes;
 //use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Colors::factory(1)->create();
+        Redes::factory(1)->create();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

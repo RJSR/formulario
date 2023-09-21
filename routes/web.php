@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DatosController;
 use App\Http\Controllers\ColorsController;
+use App\Http\Controllers\RedesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('dato', DatosController::class);
     
     Route::resource('color', ColorsController::class);
+    Route::resource('red', RedesController::class);
     
     
 });

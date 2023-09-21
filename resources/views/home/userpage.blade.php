@@ -40,7 +40,9 @@
          </div>
       </div>
 
+      <!-- @foreach($redes as $red) -->
       @include('home.redes')
+      <!-- @endforeach -->
       @endforeach
       <!-- end header section -->
       <!-- slider section -->

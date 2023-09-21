@@ -50,6 +50,11 @@ const showingNavigationDropdown = ref(false);
                                     Colores
                                 </NavLink>
                             </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('red.index')" :active="route().current('red.index')">
+                                    Redes
+                                </NavLink>
+                            </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -146,6 +151,12 @@ const showingNavigationDropdown = ref(false);
                         </ResponsiveNavLink>
                     </div>
 
+                    <div class="pt-2 pb-3 space-y-1">
+                        <ResponsiveNavLink :href="route('red.index')" :active="route().current('red.index')">
+                            Redes
+                        </ResponsiveNavLink>
+                    </div>
+
                     <!-- Responsive Settings Options -->
                     <div class="pt-4 pb-1 border-t border-gray-200">
                         <div class="px-4">
@@ -180,24 +191,24 @@ const showingNavigationDropdown = ref(false);
     </div>
 </template>
 <script>
-export default {
-    data() {
-        return {
-            colors: [],
-        };
-    },
-    created() {
-        this.fetchPosts()
-    },
-    methods: {
-        fetchPosts() {
-            axios.get('/color').then(response=> this.color = response.data).catch(error=>console.error(error));
+// export default {
+//     data() {
+//         return {
+//             colors: [],
+//         };
+//     },
+//     created() {
+//         this.fetchPosts()
+//     },
+//     methods: {
+//         fetchPosts() {
+//             axios.get('/color').then(response=> this.color = response.data).catch(error=>console.error(error));
             
-            }
+//             }
         
-    }
+//     }
   
-};
+// };
 </script>
 
 <style>
