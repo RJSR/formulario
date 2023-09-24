@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Datos;
+use App\Models\Colors;
 use App\Http\Requests\StoreDatosRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -15,7 +16,8 @@ class DatosController extends Controller
     public function index()
     {
         $datos = Datos::all();
-        return Inertia::render('Datos/Index',['datos' => $datos]);
+        $colors = Colors::all();
+        return Inertia::render('Datos/Index',compact('datos','colors'));
     }
 
     /**

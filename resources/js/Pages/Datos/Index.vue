@@ -7,7 +7,9 @@ import { useForm } from '@inertiajs/vue3';
 
 const form = useForm({});
 const props = defineProps({
-    datos:{type:Object}
+    datos:{type:Object},
+    color:{type:Object,default:() => ({})},
+    colors:{type:Object}
 });
 
 const eliminar = (id,name) =>{
@@ -44,8 +46,8 @@ const openModal = (dato) => {
 <template>
     <Head title="Datos"></Head>
     <AuthenticatedLayout >
-        <template #header>
-            <div class="container-fluid mt-3 bg-white">
+        <template #header v-for="color, i in colors" :key="color.id">
+            <div class="container-fluid mt-3 bg-white" :style="{ backgroundColor: color.thirdcolor, color: color.fontcolor }">
                 <div class="row mt-3">
                     <div class="col-md-4 offset-md-4">
                         <div class="d-grid mx-auto">
