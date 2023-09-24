@@ -8,21 +8,21 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import axios from 'axios';
 import { Link } from '@inertiajs/vue3';
 
-const props = defineProps({
-    color:{type:Object,default:() => ({})},
-    colors:{type:Object}
+// const props = defineProps({
+//     color:{type:Object,default:() => ({})},
+//     colors:{type:Object}
 
-});    
+// });    
 
 const showingNavigationDropdown = ref(false);
 </script>
 
 <template>
     <div  >
-        <div class="min-h-screen bg-gray-100" :style="{ backgroundColor: color.maincolor }" >
-            <nav class="bg-white border-b border-gray-100" :style="{ backgroundColor: color.maincolor }"  >
+        <div class="min-h-screen bg-gray-100"   >
+            <nav class="bg-white border-b border-gray-100"   >
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"  :style="{ backgroundColor: color.maincolor }">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"  v-bind:style="styles">
                     <div class="flex justify-between h-16" :style="{ backgroundColor: color.maincolor }">
                         <div class="flex" :style="{ backgroundColor: color.maincolor }">
                             <!-- Logo -->
@@ -189,26 +189,72 @@ const showingNavigationDropdown = ref(false);
             </main>
         </div>
     </div>
+
 </template>
+
+<style scoped>
+.bg-white {
+    background-color: black;
+}
+.bg-gray-100{
+    background-color: blue;
+}
+
+</style>
+
 <script>
-// export default {
-//     data() {
-//         return {
-//             colors: [],
-//         };
-//     },
-//     created() {
-//         this.fetchPosts()
-//     },
-//     methods: {
-//         fetchPosts() {
-//             axios.get('/color').then(response=> this.color = response.data).catch(error=>console.error(error));
-            
-//             }
+export default {
+    
+    data(){
+        return {
+            color:{
+                id: "",
+                maincolor:"",
+                seccolor:"",
+                thirdcolor:"",
+                bgcolor:"",
+                fontcolor:""
+
+
+            },
+
+            styles: {
+                'background-color': 'red'
+            }
+        }
+    },
+    mounted(){
+        this.mostrarColor();
         
-//     }
-  
-// };
+
+    },
+
+    computed(){
+        styles: {
+            return{
+                'background-color': 'color.maincolor'
+            }
+        }
+    },
+
+    methods:{
+        async mostrarColor(){
+            axios.get(`/color`).then(response=>{
+                const { id, maincolor, seccolor, thirdcolor, bgcolor, fontcolor } = response.data
+                this.color.id = id
+                this.color.maincolor = maincolor
+                this.color.seccolor = seccolor
+                this.color.thirdcolor = thirdcolor
+                this.color.bgcolor = bgcolor
+                this.color.fontcolor = fontcolor
+                
+            }).catch(error=>{
+                console.log(error)
+            })
+        },
+
+    }
+}
 </script>
 
 <style>

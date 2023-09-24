@@ -43,7 +43,7 @@ const openModal = (dato) => {
 </script>
 <template>
     <Head title="Datos"></Head>
-    <AuthenticatedLayout>
+    <AuthenticatedLayout >
         <template #header>
             <div class="container-fluid mt-3 bg-white">
                 <div class="row mt-3">

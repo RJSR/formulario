@@ -1,9 +1,9 @@
 
-<section>
+<section >
    
-    <nav class="redes">
+   <nav class="redes" >
          <div class="cubes-grid">
-            <a href="{{$red -> twitter}}">
+            <a href="{{$red -> twitter}}" id="cube_tw">
                <div class="item">
 
                   <div class="cube">
@@ -19,7 +19,7 @@
             </a>
          </div>
          <!-- <div style="margin-top: 20px;"></div> -->
-         <div class="cubes-grid">
+         <div class="cubes-grid" id="cube_ig">
             <a href="{{$red -> ig}}">
                <div class="item">
 
@@ -35,7 +35,7 @@
                </div>
             </a>
          </div>
-         <div class="cubes-grid">
+         <div class="cubes-grid" id="cube_fb">
             <a href="{{$red -> fb}}">
                <div class="item">
 
@@ -103,43 +103,44 @@
         transform: scale(0.9) var(--start-pos);
         transition: transform var(--anim-duration);
 
-
-         /* 	background-color: rgba(40, 40, 40, 0.1); */
       }
 
       .item:hover .cube {
          transform: var(--end-pos) scale(1);
          
+         
+      }
+      .item:hover .ig{
+         background-color: #E1306C;
       }
 
       .cube-face {
          position: absolute;
          width: 100%;
          height: 100%;
+         
+         
       }
 
       .front {
          transform: rotateY(0deg) translateZ(var(--half-w));
          background-color: gainsboro;
-         /* background: linear-gradient( 122deg, rgba(232, 232, 237, 0.9) 0%, rgba(218, 218, 226, 0.9) 100%); */
+         
       }
 
       .right {
          transform: rotateY(90deg) translateZ(var(--half-w));
          background-color: gainsboro;
-         /* background: linear-gradient( 122deg, rgba(202, 204, 212, 0.9) 0%, rgba(199, 202, 213, 0.9) 100%); */
       }
 
       .back {
          transform: rotateY(180deg) translateZ(var(--half-w));
          background-color: gainsboro;
-         /* background: linear-gradient( 122deg, rgba(199, 202, 213, 0.9) 0%, rgba(202, 204, 212, 0.9) 100%); */
       }
 
       .left {
          transform: rotateY(-90deg) translateZ(var(--half-w));
          background-color: gainsboro;
-         /* background: linear-gradient( 122deg, rgba(218, 218, 226, 0.9) 0%, rgba(232, 232, 237, 0.9) 100%); */
       }
 
       .top {
@@ -147,25 +148,73 @@
          height: var(--w);
          transform: rotateX(90deg) translateZ(var(--half-w));
          background-color: gainsboro;
-         /* background: linear-gradient( 122deg, rgba(238, 239, 242, 0.9) 0%, rgba(231, 232, 236, 0.9) 100%); */
       }
+
+      .front.ig, .right.ig, .left.ig, .back.ig{
+         background-image: url('ig.png');
+        
+      }
+
       .ig{
-        background-image: url('ig.png');
-        background-color: white;
+        
+        background-color: #C13584;
+        
+        
+      }
+      .front.x, .right.x, .left.x, .back.x{
+        background-image: url('x.png');
+        
         
       }
       .x{
-        background-image: url('x.png');
-        
-        background-color: black;
-        /* display: none; */
-        
-        
+         background-color: black;
       }
-      .fb{
-        background-image: url('fb.png');
-        background-color: white;
+      
+      .front.fb, .right.fb, .left.fb, .back.fb{
+         background-image: url('fb.png');
+        
       }
 
-    </style>
+      .fb{
+        
+        background-color: #4267B2;
+      }
+
+   </style>
+
+   <script>
+
+      function vaciofb(x) {
+
+         if (x === "") {
+            document.getElementById("cube_fb").style.display = "none";
+         } else {
+            document.getElementById('cube_fb').style.display = 'block';
+         }
+      }
+      vaciofb("{{$red->fb}}" );
+
+      function vaciotw(x) {
+
+         if (x === "") {
+            document.getElementById("cube_tw").style.display = "none";
+         } else {
+            document.getElementById('cube_tw').style.display = 'block';
+         }
+      }
+      vaciotw("{{$red->twitter}}" );
+
+      function vacioig(x) {
+
+         if (x === "") {
+            document.getElementById("cube_ig").style.display = "none";
+         } else {
+            document.getElementById('cube_ig').style.display = 'block';
+         }
+      }
+      vacioig("{{$red->ig}}" );
+
+   </script>
+
+
 </section>
