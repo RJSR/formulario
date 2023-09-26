@@ -7,6 +7,9 @@ use Inertia\Inertia;
 use App\Http\Controllers\DatosController;
 use App\Http\Controllers\ColorsController;
 use App\Http\Controllers\RedesController;
+use App\Models\Datos;
+use App\Models\Colors;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +35,9 @@ Route::get('/', [ProfileController::class, 'index']);
 
 Route::get('/dashboard', function () {
     
-    return Inertia::render('Dashboard');
+    $datos = Datos::all();
+    $colors = Colors::all();
+    return Inertia::render('Dashboard',compact('datos','colors'));
     
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -45,6 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('color', ColorsController::class);
     Route::resource('red', RedesController::class);
     
+    Route::get('/api/color', function (Request $request) {
+        $colors = Colors::all();
+        return $colors->toArray();
+    });
     
 });
 

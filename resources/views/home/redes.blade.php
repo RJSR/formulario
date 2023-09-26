@@ -18,7 +18,7 @@
                </div>
             </a>
          </div>
-         <!-- <div style="margin-top: 20px;"></div> -->
+
          <div class="cubes-grid" id="cube_ig">
             <a href="{{$red -> ig}}">
                <div class="item">
@@ -72,10 +72,8 @@
       }
 
       :root {
-         /* 	Set cube size */
          --w: 40px;
          --h: 40px;
-         /* 	Other variables */
          --start-pos: translateZ(-8rem) rotateX(330deg) rotateY(-45deg);
          --end-pos: translateZ(-8rem) rotateX(330deg) rotateY(855deg);
          --anim-duration: 350ms;
@@ -87,11 +85,7 @@
          width: var(--w);
          height: var(--h);
          
-         
       }
-      /* a{
-        pointer-events: none;
-      } */
 
       .cube {
         /* margin-top: 50%; */

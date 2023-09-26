@@ -45,24 +45,24 @@ const openModal = (dato) => {
 </script>
 <template>
     <Head title="Datos"></Head>
-    <AuthenticatedLayout >
-        <template #header v-for="color, i in colors" :key="color.id">
-            <div class="container-fluid mt-3 bg-white" :style="{ backgroundColor: color.thirdcolor, color: color.fontcolor }">
+    <AuthenticatedLayout v-for="color, i in colors" :key="color.id" >
+        <template #header >
+            <div class="container-fluid mt-3 " :style="{ backgroundColor: color.maincolor, color: color.fontcolor }">
                 <div class="row mt-3">
-                    <div class="col-md-4 offset-md-4">
+                    <div class="col-md-4 offset-md-4" >
                         <div class="d-grid mx-auto">
 
                         </div>
                     </div>
                 </div>
-                <div class="row mt-10">
+                <div class="row mt-10" >
                     <div class="col-md-10 offset-md-1">
-                        <div class="table-responsive">
-                            <table class="table table-stripeted table-bordered">
+                        <div class="table-responsive" :style="{ backgroundColor: color.maincolor, color: color.fontcolor }">
+                            <table class="table table-stripeted table-bordered" >
                                 <thead>
                                     <tr>
                                         <th>#</th><th>NOMBRE</th><th>RIF</th><th>TLF 1</th><th>TLF 2</th>
-                                        <th>CORREO 1</th><th>CORREO 2</th><th>ESTADO</th><th>PAIS</th><th></th><th></th>
+                                        <th>CORREO 1</th><th>CORREO 2</th><th>ESTADO</th><th>PAIS</th><th></th>
                                     </tr>
                                 </thead>
                                 <tbody>

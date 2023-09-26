@@ -8,26 +8,30 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import axios from 'axios';
 import { Link } from '@inertiajs/vue3';
 
-// const props = defineProps({
-//     color:{type:Object,default:() => ({})},
-//     colors:{type:Object}
 
-// });    
+const props = defineProps({
+    color:{type:Object,default:() => ({})},
+    // colors:{type:Object}
+
+});    
+
+
 
 const showingNavigationDropdown = ref(false);
 </script>
 
 <template>
-    <div  >
-        <div class="min-h-screen bg-gray-100"    >
-            <nav class="bg-white border-b border-gray-100"   >
+    <div  v-for="color, i in colors" :key="color.id">
+        <div class="min-h-screen " :style="{ backgroundColor: color.maincolor, color: color.fontcolor }"   >
+            <nav class=" border-b border-gray-100" :style="{ backgroundColor: color.bgcolor, color: color.fontcolor }"  >
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"  v-bind:style="styles">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"  >
                     <div class="flex justify-between h-16" >
                         <div class="flex" >
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
+                                    <img src="" alt="">
                                     <ApplicationLogo
                                         class="block h-9 w-auto fill-current text-gray-800"
                                     />
@@ -177,7 +181,7 @@ const showingNavigationDropdown = ref(false);
             </nav>
 
             <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header" >
+            <header class="shadow" v-if="$slots.header" :style="{ backgroundColor: color.bgcolor, color: color.fontcolor }" >
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" >
                     <slot name="header" />
                 </div>
@@ -193,12 +197,6 @@ const showingNavigationDropdown = ref(false);
 </template>
 
 <style scoped>
-.bg-white {
-    background-color: black;
-}
-.bg-gray-100{
-    background-color: blue;
-}
 
 </style>
 
@@ -207,7 +205,7 @@ export default {
     
     data(){
         return {
-            color:{
+            colors:{
                 id: "",
                 maincolor:"",
                 seccolor:"",
@@ -218,9 +216,6 @@ export default {
 
             },
 
-            styles: {
-                'background-color': 'red'
-            }
         }
     },
     mounted(){
@@ -229,29 +224,12 @@ export default {
 
     },
 
-    computed(){
-        styles: {
-            return{
-                'background-color': 'color.maincolor'
-            }
-        }
-    },
 
     methods:{
-        async mostrarColor(){
-            axios.get(`/color`).then(response=>{
-                const { id, maincolor, seccolor, thirdcolor, bgcolor, fontcolor } = response.data
-                this.color.id = id
-                this.color.maincolor = maincolor
-                this.color.seccolor = seccolor
-                this.color.thirdcolor = thirdcolor
-                this.color.bgcolor = bgcolor
-                this.color.fontcolor = fontcolor
-                
-            }).catch(error=>{
-                console.log(error)
-            })
-        },
+        mostrarColor(){
+                axios.get('/api/color').then(response=> this.colors = response.data).catch(error=>console.error(error));
+
+        }
 
     }
 }
